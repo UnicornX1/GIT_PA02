@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,11 +16,19 @@ public class Player : MonoBehaviour
 
     private float moveSpeed = 0.05f;
 
+    public GameObject Boom;
+
+    public Text LivesTxt;
+
+    private float lives;
+
     void Start()
     {
         thisController = GetComponent<CharacterController>();
         thisAnimator = GetComponentInChildren<Animator>();
         playerMesh = transform.GetChild(0);
+
+        lives = 3;
     }
 
     void Update()
@@ -52,6 +61,20 @@ public class Player : MonoBehaviour
 
         thisController.Move(MoveDirection);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -1.5f, 1.5f), transform.position.y, transform.position.z);
-    }
 
+        LivesTxt.text = "LIVES : " + lives;
+
+        if(lives == 0)
+        {
+
+        }
+    }
+    public void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "Bad")
+        {
+            Instantiate(Boom, transform.position, Quaternion.identity);
+            lives--;
+        }
+    }
 }
