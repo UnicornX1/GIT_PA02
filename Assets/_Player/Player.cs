@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -66,13 +67,14 @@ public class Player : MonoBehaviour
 
         if(lives == 0)
         {
-
+            SceneManager.LoadScene("GameOver");
         }
     }
     public void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Bad")
         {
+            Destroy(collision.gameObject);
             Instantiate(Boom, transform.position, Quaternion.identity);
             lives--;
         }
