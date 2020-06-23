@@ -43,26 +43,26 @@ public class Spawn : MonoBehaviour
                 switch (WhatToSpawn)
                 {
                     case 1:
-                        PositionX = Random.Range(-6, 6f);
+                        PositionX = Random.Range(-5, 5f);
                         this.transform.position = new Vector3(PositionX, 0, 0);
                         Instantiate(tire, transform.position, transform.rotation);
                         //print("Spawn");
                         break;
 
                     case 2:
-                        PositionX = Random.Range(-6, 6f);
+                        PositionX = Random.Range(-5, 5f);
                         this.transform.position = new Vector3(PositionX, 0, 0);
                         Instantiate(Barrel, transform.position, transform.rotation);
                         break;
 
                     case 3:
-                        PositionX = Random.Range(-6, 6f);
+                        PositionX = Random.Range(-5, 5f);
                         this.transform.position = new Vector3(PositionX, 0, 0);
                         Instantiate(Walrus, transform.position, transform.rotation);
                         break;
 
                     case 4:
-                        PositionX = Random.Range(-6, 6f);
+                        PositionX = Random.Range(-5, 5f);
                         this.transform.position = new Vector3(PositionX, 0, 0);
                         Instantiate(IceBlock, transform.position, transform.rotation);
                         break;

@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Instantiate(Boom, transform.position, Quaternion.identity);
-            lives--;
+            lives-=1;
         }
     }
 }
